@@ -8,11 +8,12 @@ tg.MainButton.color = '#2cab37';
 tg.MainButton.setText("Отправить");
 tg.MainButton.show();
 
+let button = document.getElementById("submit");
 
-Telegram.WebApp.onEvent("mainButtonClicked", function(){
-	let name = document.getElementById("user_name");
-	let email = document.getElementById("user_mail");
-	let password = document.getElementById("user_pass");
+button.addEventListener("click", function(){
+	let name = document.getElementById("user_name").value;
+	let email = document.getElementById("user_mail").value;
+	let password = document.getElementById("user_pass").value;
 	data = {
 		name: name,
 		email:email,
@@ -22,7 +23,17 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	tg.close()
 });
 
+$('.error-page').hide(0);
 
+$('.login-button , .no-access').click(function(){
+  $('.login').slideUp(500);
+  $('.error-page').slideDown(1000);
+});
+
+$('.try-again').click(function(){
+  $('.error-page').hide(0);
+  $('.login').slideDown(1000);
+});
 
 
 
