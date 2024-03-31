@@ -1,21 +1,14 @@
 <!DOCTYPE html>
-<link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css' rel='stylesheet' type='text/css'>
-<div class="login">
-  <div class="login-header">
-    <h1>Login</h1>
-  </div>
-  <div class="login-form">
-    <h3>Username:</h3>
-    <input type="text" id = "user_name" placeholder="Username"/><br>
-    <h3>Password:</h3>
-    <input type="password" id = "user_pass" placeholder="Password"/>
-	<h3>Email:</h3>
-    <input type="mail" id = "user_mail" placeholder="Email"/>
-    <br>
-    <input type="button" value="Send Data" id = "submit" class="login-button"/>
-  </div>
-</div>
-<div class="error-page">
-  <div class="try-again">Error: Try again?</div>
-</div>
+<head>
+	<h1>Login Panel</h1>
+</head>
+<body>
+	<form id = "form">
+		<input type="text" placeholder="Имя" id = "user_name">
+		<input type="text" placeholder="Пароль" id = "user_pass">
+		<input type="text" placeholder="Почта" id = "user_mail">
+		<div id = "error"></div>
+	</form>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src = "app.js"></script>
+</body>
