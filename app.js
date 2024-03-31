@@ -8,9 +8,8 @@ tg.MainButton.color = '#2cab37';
 tg.MainButton.setText("Отправить");
 tg.MainButton.show();
 
-let button = document.getElementById("submit");
 
-button.addEventListener("click", function(){
+Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	let name = document.getElementById("user_name").value;
 	let email = document.getElementById("user_mail").value;
 	let password = document.getElementById("user_pass").value;
