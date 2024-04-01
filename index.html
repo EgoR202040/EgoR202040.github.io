@@ -14,15 +14,9 @@
 	</form>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
-	let tg = window.Telegram.WebApp;
+let tg = window.Telegram.WebApp;
 
-	tg.expand();
-var timer = setInterval(function() { 
-    if(tg.closed) {
-        clearInterval(timer);
-        alert('closed');
-    }
-}, 1000);
+tg.expand();
 tg.MainButton.textColor = '#FFFFFF';
 tg.MainButton.color = '#2cab37';
 
@@ -47,7 +41,6 @@ Telegram.WebApp.onEvent("popupClosed",function(){
 		error:true
 	}
 	tg.sendData(JSON.stringify(data))
-	tg.close();
 });
 
 
