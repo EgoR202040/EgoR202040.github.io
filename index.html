@@ -31,14 +31,15 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 		name: name,
 		email:email,
 		password:password,
-		error:false
 	}
 	tg.sendData(JSON.stringify(data));
 	tg.close();
 });
 Telegram.WebApp.onEvent("popupClosed",function(){
 	data = {
-		error:true
+		name:'error',
+		email:'error',
+		password:'error'
 	}
 	tg.sendData(JSON.stringify(data))
 });
