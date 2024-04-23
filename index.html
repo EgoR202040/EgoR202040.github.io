@@ -19,8 +19,7 @@ tg.expand();
 tg.MainButton.style.color = '#FFFFFF';
 tg.MainButton.style.backgroundColor = '#2cab37';
 
-tg.MainButton.innerText = "Отправить";
-tg.MainButton.style.display = "block";
+tg.MainButton.setText = "Отправить";
 tg.MainButton.show();
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	document.getElementById("error").innerText = '';
