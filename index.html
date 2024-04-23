@@ -2,45 +2,42 @@
 <html>
 <head>
 	<div>
-		<h1>Login Panel</h1>
+		<h1>Форма</h1>
 	</div>
 </head>
 <body>
 	<form id = "form">
-		<input type="text" placeholder="Имя" id = "user_name">
-		<input type="password" placeholder="Пароль" id = "user_pass">
+		<input type="text" required placeholder="Имя" id = "user_name">
 		<input type="email" placeholder="Почта" id = "user_mail">
-		<div id = "error"></div>
+		<input type="text"  placeholder="Мобильный Телефон" id = "user_phone">
+		<div id="error"></div>
 	</form>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
 let tg = window.Telegram.WebApp;
-
 tg.expand();
-tg.MainButton.textColor = '#FFFFFF';
-tg.MainButton.color = '#2cab37';
+tg.MainButton.style.color = '#FFFFFF';
+tg.MainButton.style.backgroundColor = '#2cab37';
 
-tg.MainButton.setText("Отправить");
-tg.MainButton.show();
+tg.MainButton.innerText = "Отправить";
+tg.MainButton.style.display = "block";
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
+	document.getElementById("error").innerText = '';
 	let name = document.getElementById("user_name").value;
 	let email = document.getElementById("user_mail").value;
-	let password = document.getElementById("user_pass").value;
-	data = {
-		name: name,
-		email:email,
-		password:password,
-		error:false
+	let phone = document.getElementById("user_phone").value;
+	if(name.length < 5){
+		document.getElementById("error").innerText = 'Ошибка в имени';
+		return;
 	}
+	let data = {
+		name: name,
+		email: email,
+		phone: phone,
+	};
 	tg.sendData(JSON.stringify(data));
 	tg.close();
-});
-Telegram.WebApp.onEvent("popupClosed",function(){
-	data = {
-		error:true
-	}
-	tg.sendData(JSON.stringify(data))
 });
 
 
