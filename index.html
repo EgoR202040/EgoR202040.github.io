@@ -7,17 +7,9 @@
 </head>
 <body>
 	<form id = "form">
-		<input type="text" required placeholder="Имя" id = "user_name">
-		<input type="password" required placeholder="Пароль" id = "user_pass">
-		<input type="email" required placeholder="Почта" id = "user_mail">
-		<input type="text" required placeholder="Мобильный Телефон" id = "user_phone">
-		<input type="text" required placeholder="Отчество" id ='user_second_name'>
-		<input type="text" required placeholder="ИНН" id="snils">
-		<input type="text" required placeholder="Номер в\у" id="number_auto_license">
-		<input type="text" required placeholder="Дата выдачи в\у" id="data_auto_license">
-		<input type="text" required placeholder="Домашний телефон",id="work_phone">
-		<input type="text" required placeholder="Дополнительный телефон",id="home_phone">
-		<input type="text" required placeholder="Дополнительный email",id="second_mail">
+		<input type="text" placeholder="Имя" id = "user_name">
+		<input type="password" placeholder="Пароль" id = "user_pass">
+		<input type="email" placeholder="Почта" id = "user_mail">
 		<div id = "error"></div>
 	</form>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -35,29 +27,20 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	let name = document.getElementById("user_name").value;
 	let email = document.getElementById("user_mail").value;
 	let password = document.getElementById("user_pass").value;
-	let phone = document.getElementById("user_phone").value;
-	let mail_second = document.getElementById("second_mail").value;
 	data = {
 		name: name,
 		email:email,
 		password:password,
-		phone:phone,
-		second_mail:mail_second
+		error:false
 	}
 	tg.sendData(JSON.stringify(data));
 	tg.close();
 });
 Telegram.WebApp.onEvent("popupClosed",function(){
 	data = {
-		name:'error',
-		email:'error',
-		password:'error'
+		error:true
 	}
 	tg.sendData(JSON.stringify(data))
-});
-	tg.onEvent('invoiceClosed', function() {
-  tg.sendData(JSON.stringify(data));
-	tg.close();
 });
 
 
