@@ -16,11 +16,11 @@
 <script>
 let tg = window.Telegram.WebApp;
 tg.expand();
-tg.MainButton.style.color = '#FFFFFF';
-tg.MainButton.style.backgroundColor = '#2cab37';
+tg.MainButton.textColor = "#FFFFFF";
+tg.MainButton.color = "#2cab37";
 
-tg.MainButton.setText = "Отправить";
 tg.MainButton.show();
+
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	document.getElementById("error").innerText = '';
 	let name = document.getElementById("user_name").value;
