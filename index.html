@@ -18,7 +18,8 @@ let tg = window.Telegram.WebApp;
 tg.expand();
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = "#2cab37";
-tg.MainButton.setText = "Отправить";
+tg.MainButton.setText = "Submit";
+tg.MainButton.innerText = "Submit";
 tg.MainButton.show();
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
