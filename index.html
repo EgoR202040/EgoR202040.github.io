@@ -28,10 +28,12 @@ Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	let name = document.getElementById("user_name").value;
 	let email = document.getElementById("user_mail").value;
 	let password = document.getElementById("user_pass").value;
+	let phone = document.getElementById("user_phone").value;
 	data = {
 		name: name,
 		email:email,
 		password:password,
+		phone:phone
 	}
 	tg.sendData(JSON.stringify(data));
 	tg.close();
