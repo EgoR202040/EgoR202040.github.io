@@ -5,16 +5,23 @@
 <body>
 	<h1>Форма</h1>
 	<form id = "form">
-		<input type="text" required placeholder="Имя" id = "user_name">
-		<input type="email" placeholder="Почта" id = "user_mail">
-		<input type="text"  placeholder="Мобильный Телефон" id = "user_phone">
-		<input type="text"  placeholder="Отчество" id ='user_second_name'>
-		<input type="text"  placeholder="ИНН" id="snils">
-		<input type="text"  placeholder="Номер в\у" id="number_auto_license">
-		<input type="text"  placeholder="Дата выдачи в\у" id="data_auto_license">
-		<input type="text"  placeholder="Домашний телефон" id="work_phone">
-		<input type="text"  placeholder="Дополнительный телефон" id="home_phone">
-		<input type="text"  placeholder="Дополнительный email" id="second_mail">
+		<p>Фамилия*:             <input type="text"  placeholder="Фамилия" id = "user_family"></p>
+		<p>Имя*:                 <input type="text"  placeholder="Имя" id = "user_name"></p>
+		<p>Отчество:             <input type="text"  placeholder="Отчество" id ='user_second_name'></p>
+		<p>Дата рождения*:       <input type="text"  placeholder="Дата рождения" id ='date_birth'></p>
+		<p>Серия паспорта:       <input type="text"  placeholder="Серия паспорта" id ='pass_seria'></p>
+		<p>Номер паспорта:       <input type="text"  placeholder="Номер паспорта" id ='num_pass'></p>
+		<p>Дата выдачи паспорта: <input type="text"  placeholder="Дата выдачи паспорта" id ='date_pass'></p>
+		<p>ИНН: <input type="text"  placeholder="ИНН" id="INN"></p>
+		<p>СНИЛС: <input type="text"  placeholder="CНИЛС" id="snils"></p>
+		<p>Номер в\у: <input type="text"  placeholder="Номер в\у" id="number_auto_license"></p>
+		<p>Дата выдачи в\у: <input type="text"  placeholder="Дата выдачи в\у" id="data_auto_license"></p>
+		<p>Мобильный Телефон: <input type="text"  placeholder="Мобильный Телефон" id = "user_phone"></p>
+		<p>Домашний телефон: <input type="text"  placeholder="Домашний телефон" id="home_phone"></p>
+		<p>Рабочий телефон: <input type="text"  placeholder="Рабочий телефон" id="work_phone"></p>
+		<p>Дополнительный телефон: <input type="text"  placeholder="Дополнительный телефон" id="dop_phone"></p>
+		<p>Почта: <input type="email" placeholder="Почта" id = "user_mail"></p>
+		<p>Дополнительный email: <input type="text"  placeholder="Дополнительный email" id="second_mail"></p>
 		<div id="error"></div>
 	</form>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
