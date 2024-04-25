@@ -5,22 +5,22 @@
 <body>
 	<h1>Форма</h1>
 	<form id = "form">
-		<p>Фамилия*:             <input type="text"  placeholder="Фамилия" id = "user_family"></p>
-		<p>Имя*:                 <input type="text"  placeholder="Имя" id = "user_name"></p>
-		<p>Отчество:             <input type="text"  placeholder="Отчество" id ='user_second_name'></p>
-		<p>Дата рождения*:       <input type="text"  placeholder="Дата рождения" id ='date_birth'></p>
-		<p>Серия паспорта:       <input type="text"  placeholder="Серия паспорта" id ='pass_seria'></p>
-		<p>Номер паспорта:       <input type="text"  placeholder="Номер паспорта" id ='num_pass'></p>
-		<p>Дата выдачи паспорта: <input type="text"  placeholder="Дата выдачи паспорта" id ='date_pass'></p>
-		<p>ИНН: <input type="text"  placeholder="ИНН" id="INN"></p>
+		<p>Фамилия*:             <input type="text"  placeholder="Фамилия" id = "patternal"></p>
+		<p>Имя*:                 <input type="text"  placeholder="Имя" id = "name"></p>
+		<p>Отчество:             <input type="text"  placeholder="Отчество" id ='patronymic'></p>
+		<p>Дата рождения*:       <input type="text"  placeholder="Дата рождения" id ='birthDt'></p>
+		<p>Серия паспорта:       <input type="text"  placeholder="Серия паспорта" id ='passport_series'></p>
+		<p>Номер паспорта:       <input type="text"  placeholder="Номер паспорта" id ='passport_number'></p>
+		<p>Дата выдачи паспорта: <input type="text"  placeholder="Дата выдачи паспорта" id ='issueDate'></p>
+		<p>ИНН: <input type="text"  placeholder="ИНН" id="inn"></p>
 		<p>СНИЛС: <input type="text"  placeholder="CНИЛС" id="snils"></p>
 		<p>Номер в\у: <input type="text"  placeholder="Номер в\у" id="number_auto_license"></p>
-		<p>Дата выдачи в\у: <input type="text"  placeholder="Дата выдачи в\у" id="data_auto_license"></p>
+		<p>Дата выдачи в\у: <input type="text"  placeholder="Дата выдачи в\у" id="date_auto_license"></p>
 		<p>Мобильный Телефон: <input type="text"  placeholder="Мобильный Телефон" id = "user_phone"></p>
 		<p>Домашний телефон: <input type="text"  placeholder="Домашний телефон" id="home_phone"></p>
 		<p>Рабочий телефон: <input type="text"  placeholder="Рабочий телефон" id="work_phone"></p>
 		<p>Дополнительный телефон: <input type="text"  placeholder="Дополнительный телефон" id="dop_phone"></p>
-		<p>Почта: <input type="email" placeholder="Почта" id = "user_mail"></p>
+		<p>Почта: <input type="email" placeholder="Почта" id = "mail"></p>
 		<p>Дополнительный email: <input type="text"  placeholder="Дополнительный email" id="second_mail"></p>
 		<div id="error"></div>
 	</form>
@@ -35,35 +35,53 @@ tg.MainButton.show();
 
 Telegram.WebApp.onEvent("mainButtonClicked", function(){
 	document.getElementById("error").innerText = '';
-	let name = document.getElementById("user_name").value;
-	let email = document.getElementById("user_mail").value;
-	let phone = document.getElementById("user_phone").value;
-	let mail_second = document.getElementById("second_mail").value;
-	let second_name = document.getElementById("user_second_name").value;
+	let name = document.getElementById("name").value;
+	let patternal = document.getElementById("patternal").value;
+	let patronymic = document.getElementById("patronymic").value;
+	let birthDt = document.getElementById("birthDt").value;
+	let passport_series = document.getElementById("passport_series").value;
+	let passport_number = document.getElementById("passport_number").value;
+	let issueDate = document.getElementById("issueDate").value;
+	let inn = document.getElementById("inn").value;
 	let snils = document.getElementById("snils").value;
 	let number_auto_license = document.getElementById("number_auto_license").value;
-	let data_auto_license = document.getElementById("data_auto_license").value;
-	let work_phone = document.getElementById("work_phone").value;
+	let date_auto_license = document.getElementById("date_auto_license").value;
+	let user_phone = document.getElementById("user_phone").value;
 	let home_phone = document.getElementById("home_phone").value;
+	let work_phone = document.getElementById("work_phone").value;
+	let dop_phone = document.getElementById("dop_phone").value;
+	let mail = document.getElementById("mail").value;
+	let second_mail = document.getElementById("second_mail").value;
 	if(name.length < 1){
-		document.getElementById("error").innerText = 'Ошибка в имени';
+		document.getElementById("error").innerText = 'Обязательное надо указать имя!';
 		return;
 	}
-	if(second_name.length < 1){
-		document.getElementById("error").innerText = 'Ошибка в отчестве';
+	if(patternal.length < 1){
+		document.getElementById("error").innerText = 'Обязательное надо указать фамилию!';
+		return;
+	}
+	if(birthDt.length < 10){
+		document.getElementById("error").innerText = 'Обязательное надо указать дату рождения в формате XX.XX.XXXX';
 		return;
 	}
 	let data = {
 		name: name,
-		email: email,
-		phone: phone,
-		second_mail: mail_second,
-		second_name: second_name,
-		snils: snils,
-		number_auto_license: number_auto_license,
-		data_auto_license: data_auto_license,
-		work_phone: work_phone,
-		home_phone: home_phone,
+		patternal:patternal,
+		patronymic:patronymic,
+		birthDt:birthDt,
+		passport_series:passport_series,
+		passport_number:passport_number,
+		issueDate:issueDate,
+		inn:inn,
+		snils:snils,
+		number_auto_license:number_auto_license,
+		date_auto_license:date_auto_license,
+		user_phone:user_phone,
+		home_phone:home_phone,
+		work_phone:work_phone,
+		dop_phone:dop_phone,
+		mail:mail,
+		second_mail:second_mail,
 	};
 	tg.sendData(JSON.stringify(data));
 	tg.close();
